@@ -4,13 +4,13 @@ import { connect } from 'cloudflare:sockets';
 
 // How to generate your own UUID:
 // [Windows] Press "Win + R", input cmd and run:  Powershell -NoExit -Command "[guid]::NewGuid()"
-let userID = '77a571fb-4fd2-4b37-8596-1b7d9728bb5c';
+let userID = '63e85328-a99f-49e0-9bd9-f2b309c87e99';
 
 const proxyIPs = ["[2a01:4f8:c2c:123f:64:5:ac40:6c0a]"];//['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'edgetunnel.anycast.eu.org'];
 
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 
-let dohURL = 'https://sky.rethinkdns.com/1:-Pf_____9_8A_AMAIgE8kMABVDDmKOHTAKg='; // https://cloudflare-dns.com/dns-query or https://dns.google/dns-query
+let dohURL = 'https://dns.adguard-dns.com/dns-query'; // or use https://8.8.8.8/dns-query or https://cloudflare-dns.com/dns-query or  https://dns.adguard-dns.com/dns-query  or https://sky.rethinkdns.com/1:-Pf_____9_8A_AMAIgE8kMABVDDmKOHTAKg=
 
 // v2board api environment variables (optional) deprecated, please use planetscale.com instead
 
@@ -81,7 +81,7 @@ export default {
 					default:
 						// return new Response('Not found', { status: 404 });
 						// For any other path, reverse proxy to 'www.fmprc.gov.cn' and return the original response, caching it in the process
-						const hostnames = ['www.visa.com', 'www.wto.org'];
+						const hostnames = ['piped.kavin.rocks', 'www.speedtest.net'];
 						url.hostname = hostnames[Math.floor(Math.random() * hostnames.length)];
 						url.protocol = 'https:';
 
@@ -715,12 +715,12 @@ async function handleUDPOutBound(webSocket, vlessResponseHeader, log) {
  * @returns {string}
  */  
 function getVLESSConfig(userID, hostName) {
-	const wvlessws = `vless://${userID}@www.visa.com:8880?encryption=none&security=none&type=ws&host=${hostName}&path=%2F%3Fed%3D2048#${hostName}`;
-	const pvlesswstls = `vless://${userID}@www.visa.com:8443?encryption=none&security=tls&type=ws&host=${hostName}&sni=${hostName}&fp=random&path=%2F%3Fed%3D2048#${hostName}`;
+	const wvlessws = `vless://${userID}@who.int:8443?encryption=none&security=tls&type=ws&host=${hostName}&sni=${hostName}&fp=random&path=%2F%3Fed%3D2048#${hostName}`;
+	const pvlesswstls = `vless://${userID}@WiSkeY.RaDiCaLLy.prO:443?encryption=none&security=tls&type=ws&host=${hostName}&sni=${hostName}&fp=random&path=%2F%3Fed%3D2048#${hostName}`;
 	
 	if (hostName.includes('pages.dev')) {
 	  return `
-  <p>==========================配置详解==============================</p>
+  <p>==========================Configuration details==============================</p>
   
   <p>################################################################</p>
   <p>CF-pages-vless+ws+tls节点，分享链接如下：</p>
@@ -745,7 +745,7 @@ function getVLESSConfig(userID, hostName) {
   
 	} else if (hostName.includes('workers.dev'))  {
 	  return `
-  <p>==========================配置详解==============================</p>
+  <p>==========================Configuration details==============================</p>
   
   <p>################################################################</p>
   <p>一、CF-workers-vless+ws节点，分享链接如下：</p>
