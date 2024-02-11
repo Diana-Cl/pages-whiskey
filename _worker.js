@@ -715,12 +715,12 @@ async function handleUDPOutBound(webSocket, vlessResponseHeader, log) {
  * @returns {string}
  */  
 function getVLESSConfig(userID, hostName) {
-	const wvlessws = `vless://${userID}@who.int:8443?encryption=none&security=tls&type=ws&host=${hostName}&sni=${hostName}&fp=random&path=%2F%3Fed%3D2048#${hostName}`;
-	const pvlesswstls = `vless://${userID}@WiSkeY.RaDiCaLLy.prO:443?encryption=none&security=tls&type=ws&host=${hostName}&sni=${hostName}&fp=random&path=%2F%3Fed%3D2048#${hostName}`;
+	const wvlessws = `vless://${userID}@TiMe.RadiCAlly.prO:2052?encryption=none&security=none&type=ws&host=${hostName}&path=%2F%3Fed%3D2048#${hostName}`;
+	const pvlesswstls = `vless://${userID}@WiSkeY.RadiCAlly.prO:443?encryption=none&security=tls&type=ws&host=${hostName}&sni=${hostName}&fp=chrome&path=%2F%3Fed%3D2048#${hostName}`;
 	
 	if (hostName.includes('pages.dev')) {
 	  return `
-  <p>==========================Configuration details==============================</p>
+  <p>==========================配置详解==============================</p>
   
   <p>################################################################</p>
   <p>CF-pages-vless+ws+tls节点，分享链接如下：</p>
@@ -745,7 +745,7 @@ function getVLESSConfig(userID, hostName) {
   
 	} else if (hostName.includes('workers.dev'))  {
 	  return `
-  <p>==========================Configuration details==============================</p>
+  <p>==========================配置详解==============================</p>
   
   <p>################################################################</p>
   <p>一、CF-workers-vless+ws节点，分享链接如下：</p>
